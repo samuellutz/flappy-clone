@@ -5,7 +5,12 @@ const title = document.querySelector("[data-title]")
 
 let lastTime
 function updateLoop(time) {
-    console.log(time - lastTime);
+    if (lastTime == null) {
+        lastTime = time
+        window.requestAnimationFrame(updateLoop)
+        return
+    }
+    const delta = time - lastTime
     lastTime = time
     window.requestAnimationFrame(updateLoop)
 }
