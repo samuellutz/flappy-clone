@@ -6,6 +6,7 @@ import {updateBird, setupBird, getbirdRect} from './bird.js'
 document.addEventListener("keypress",handleStart,{once : true})
 
 const title = document.querySelector("[data-title]")
+const subtitle = document.querySelector("[data-subtitle]")
 
 
 let lastTime
@@ -31,9 +32,16 @@ function checkLose() {
 function handleStart() {
     title.classList.add("hide")
     setupBird()
+    lastTime = null
     window.requestAnimationFrame(updateLoop)
 }
 
 function handleLose() {
-
+    setTimeout (()=> {
+    title.classList.remove("hide")
+    subtitle.classList.remove("hide")
+    subtitle.textContent = "0 pipes"
+    document.addEventListener("keypress",handleStart,{once : true})
+    },100)
+    
 }
