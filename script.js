@@ -1,4 +1,7 @@
-import {updateBird} from './bird.js'
+import {updateBird, setupBird} from './bird.js'
+
+
+
 
 document.addEventListener("keypress",handleStart,{once : true})
 
@@ -20,6 +23,7 @@ function updateLoop(time) {
 
 function handleStart() {
     title.classList.add("hide")
+    setupBird()
     window.requestAnimationFrame(updateLoop)
 }
 
