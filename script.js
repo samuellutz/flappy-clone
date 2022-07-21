@@ -1,4 +1,4 @@
-import {updateBird, setupBird} from './bird.js'
+import {updateBird, setupBird, } from './bird.js'
 
 
 

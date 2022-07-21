@@ -1,14 +1,25 @@
 const birdEl = document.querySelector('[data-bird]')
 const BIRD_SPEED = .5
+const JUMP_DURATION = 125
+let timeSinceLastJump = Number.POSITIVE_INFINITY
 
 export function setupBird() {
     setTop(window.innerHeight / 2)
+    document.removeEventListener('keydown', handleJump)
+    document.addEventListener('keydown', handleJump)
 }
 
 export function updateBird (delta){
-    setTop(getTop() + BIRD_SPEED * delta)
-    console.log(getTop());
+    if (timeSinceLastJump < JUMP_DURATION){
+        setTop(getTop() - BIRD_SPEED * delta)
+    } else {
+        setTop(getTop() + BIRD_SPEED * delta)
+    }
+    timeSinceLastJump += delta
+}
 
+export function getbirdRect(){
+    return birdEl.getBoundingClientRect()
 }
 
 function setTop(top){
@@ -17,4 +28,10 @@ function setTop(top){
 
 function getTop(){
     return parseFloat(getComputedStyle(birdEl).getPropertyValue('--bird-top'))
+}
+
+function handleJump(e){
+    if (e.code === 'space') return
+
+    timeSinceLastJump = 0 
 }
