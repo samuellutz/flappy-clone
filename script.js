@@ -1,4 +1,4 @@
-import {updateBird, setupBird, } from './bird.js'
+import {updateBird, setupBird, getbirdRect} from './bird.js'
 
 
 
@@ -17,8 +17,15 @@ function updateLoop(time) {
     }
     const delta = time - lastTime
     updateBird(delta)
+    if (checkLose()) return handleLose()
     lastTime = time
     window.requestAnimationFrame(updateLoop)
+}
+
+function checkLose() {
+    const birdRect = getbirdRect()
+    const outsideWorld = birdRect.top < 0 || birdRect.bottom > window.innerHeight
+    return outsideWorld
 }
 
 function handleStart() {
