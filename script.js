@@ -1,5 +1,5 @@
 import {updateBird, setupBird, getbirdRect} from './bird.js'
-import {updatePipes} from './pipe.js'
+import {updatePipes, setUpPipes} from './pipe.js'
 
 
 
@@ -34,6 +34,7 @@ function checkLose() {
 function handleStart() {
     title.classList.add("hide")
     setupBird()
+    setUpPipes()
     lastTime = null
     window.requestAnimationFrame(updateLoop)
 }

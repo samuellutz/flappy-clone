@@ -1,6 +1,6 @@
 const birdEl = document.querySelector('[data-bird]')
 const BIRD_SPEED = .5
-const JUMP_DURATION = 125
+const JUMP_DURATION = 150
 let timeSinceLastJump = Number.POSITIVE_INFINITY
 
 export function setupBird() {
