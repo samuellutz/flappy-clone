@@ -1,4 +1,5 @@
 import {updateBird, setupBird, getbirdRect} from './bird.js'
+import {updatePipes} from './pipe.js'
 
 
 
@@ -18,6 +19,7 @@ function updateLoop(time) {
     }
     const delta = time - lastTime
     updateBird(delta)
+    updatePipes(delta)
     if (checkLose()) return handleLose()
     lastTime = time
     window.requestAnimationFrame(updateLoop)
