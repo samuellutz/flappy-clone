@@ -24,7 +24,7 @@ function createPipe(){
     pipeEl.style.setProperty('--hole-top', randomNumberBetween(HOLE_HEIGHT * 1.5, window.innerHeight - HOLE_HEIGHT * .5))
     const pipe = {
         get left() {
-            return parseFloat(getComputedStyle(pipeEL).getPropertyValue('--pipe-left'))
+            return parseFloat(getComputedStyle(pipeEl).getPropertyValue('--pipe-left'))
         },
         set left(value) {
             pipeEl.style.setProperty('--pipe-left', value)
