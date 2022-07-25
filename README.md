@@ -1,4 +1,4 @@
-[flappy-clone] (https://samuellutz.github.io/flappy-clone/)
+# *[flappy-clone] (https://samuellutz.github.io/flappy-clone/)
 a basic version of the flappy bird game to practice.
 
 
