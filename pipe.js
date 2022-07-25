@@ -1,4 +1,4 @@
-const HOLE_HEIGHT = 120
+const HOLE_HEIGHT = 200
 const PIPE_INTERVAL = 1500
 const PIPE_WIDTH = 120
 const PIPE_SPEED = .75
@@ -34,6 +34,10 @@ export function getPassedPipesCount(){
     return passedPipeCount
 }
 
+export function getPipeRect(){
+    return pipes.flatMap(pipe => pipe.rects())
+}
+
 function createPipe(){
     const pipeEl = document.createElement('div')
     const topEl = createPipeSegment('top')
@@ -52,6 +56,12 @@ function createPipe(){
         remove(){
             pipes = pipes.filter(p => p !== pipe)
             pipeEl.remove()
+        },
+        rects(){
+            return [
+                topEl.getBoundingClientRect(),
+                bottomEl.getBoundingClientRect()
+            ]
         }
     }
     pipe.left = window.innerWidth
